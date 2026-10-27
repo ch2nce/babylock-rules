@@ -1,0 +1,101 @@
+{
+ "blockHosts": [
+  "doubleclick.net",
+  "googlesyndication.com",
+  "googleadservices.com",
+  "googletagservices.com",
+  "google-analytics.com",
+  "adservice.google.com",
+  "imasdk.googleapis.com"
+ ],
+ "blockUrlPatterns": [
+  "youtube\\.com/api/stats/ads",
+  "youtube\\.com/pagead/",
+  "youtube\\.com/ptracking",
+  "youtube\\.com/get_midroll_",
+  "/youtubei/v1/player/ad_break"
+ ],
+ "pruneKeys": [
+  "adBreakHeartbeatParams",
+  "adPlacements",
+  "adSlots",
+  "isAd",
+  "playerAds"
+ ],
+ "pruneDepth": 3,
+ "removeItemKeys": [
+  "adSlotRenderer"
+ ],
+ "textReplacements": [
+  {
+   "find": "\"adPlacements\"",
+   "replace": "\"no_ads\"",
+   "url": "/player"
+  },
+  {
+   "find": "/\"adPlacements.*?([A-Z]\"\\}|\"\\}{2,4})\\}\\],/",
+   "replace": "",
+   "url": "playlist\\?list=|\\/player(?:\\?.+)?$|watch\\?[tv]="
+  },
+  {
+   "find": "/\"adPlacements.*?(\"adSlots\"|\"adBreakHeartbeatParams\")/gms",
+   "replace": "$1",
+   "url": "\\/player(?:\\?.+)?$"
+  },
+  {
+   "find": "\"adPlacements\"",
+   "replace": "\"no_ads\"",
+   "url": "player\\?"
+  },
+  {
+   "find": "\"adSlots\"",
+   "replace": "\"no_ads\"",
+   "url": "player\\?"
+  },
+  {
+   "find": "\"adSlots\"",
+   "replace": "\"no_ads\"",
+   "url": "^\\W+$"
+  },
+  {
+   "find": "\"adSlots\"",
+   "replace": "\"no_ads\"",
+   "url": "/get_watch\\?"
+  }
+ ],
+ "hideSelectors": [
+  "#toast:has(> #text-container > yt-formatted-string#text.yt-notification-action-renderer)",
+  ".ytSnackbarContainerOpened:has(> .snackbarViewModelSwipeable > .snackbarViewModelEngagementBarWrapper .ytAttributedStringWhiteSpacePreWrap[style])",
+  "ad-slot-renderer",
+  "ytm-ad-slot-renderer",
+  "ytm-companion-ad-renderer",
+  "ytm-mealbar-promo-renderer",
+  "ytm-paid-content-overlay-renderer",
+  "ytm-promoted-sparkles-web-renderer",
+  "ytm-promoted-video-renderer"
+ ],
+ "shortsSelectors": [
+  "ytm-reel-shelf-renderer",
+  "ytm-shorts-lockup-view-model",
+  "ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model)",
+  "ytm-pivot-bar-item-renderer:has(.pivot-shorts)"
+ ],
+ "skipSelectors": [
+  ".ytp-ad-skip-button",
+  ".ytp-ad-skip-button-modern",
+  ".ytp-skip-ad-button",
+  ".ytm-ad-skip-button"
+ ],
+ "adPlayingSelectors": [
+  ".ad-showing",
+  ".ad-interrupting"
+ ],
+ "extraScript": "",
+ "version": 202610271339,
+ "community": {
+  "pruneKeys": 4,
+  "hideSelectors": 2,
+  "textReplacements": 6,
+  "removeItemKeys": 1
+ }
+}
