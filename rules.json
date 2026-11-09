@@ -65,7 +65,6 @@
  ],
  "hideSelectors": [
   "#toast:has(> #text-container > yt-formatted-string#text.yt-notification-action-renderer)",
-  ".ytSnackbarContainerOpened:has(> .snackbarViewModelSwipeable > .snackbarViewModelEngagementBarWrapper .ytAttributedStringWhiteSpacePreWrap[style])",
   "ad-slot-renderer",
   "ytm-ad-slot-renderer",
   "ytm-companion-ad-renderer",
@@ -91,10 +90,10 @@
   ".ad-interrupting"
  ],
  "extraScript": "",
- "version": 202610271339,
+ "version": 202611092217,
  "community": {
   "pruneKeys": 4,
-  "hideSelectors": 2,
+  "hideSelectors": 1,
   "textReplacements": 6,
   "removeItemKeys": 1
  }
